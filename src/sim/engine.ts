@@ -78,6 +78,26 @@ export class MarketEngine {
     return this.scenario;
   }
 
+  /** How long until the next book update, in ms. Real order books do not
+   *  update on a fixed clock — events arrive in irregular bursts with the
+   *  occasional lull. This returns the natural pace for the current scenario
+   *  with that burstiness baked in (before any user speed multiplier). */
+  nextDelayMs(): number {
+    const base = SCENARIOS[this.scenario].tempoMs;
+
+    if (this.scenario === 'halt') {
+      // Long freezes punctuated by violent fast bursts at the re-open.
+      return this.haltTtl > 0 ? base * rand(0.4, 1.4) : rand(1100, 2400);
+    }
+
+    // ~15% of the time the book goes quiet for a beat; the rest of the time
+    // updates cluster rapidly. That mix is what makes it feel alive rather
+    // than metronomic.
+    const lull = Math.random() < 0.15;
+    const factor = lull ? rand(1.8, 3.6) : rand(0.3, 1.1);
+    return Math.max(25, base * factor);
+  }
+
   /** Advance the simulation one tick and return an immutable snapshot. */
   tick(): BookState {
     this.tickCount += 1;

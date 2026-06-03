@@ -68,4 +68,9 @@ export type ScenarioConfig = {
   tradeRate: number;
   /** Multiplier on the spread (1 = one tick, higher = wider). */
   spreadTicks: number;
+  /** Mean delay between book updates, in ms. Lower = faster, more alive.
+   *  Real markets range from sleepy illiquid names to unreadable blurs; this
+   *  sets each scenario's natural pace before jitter and the user's speed
+   *  multiplier are applied. */
+  tempoMs: number;
 };

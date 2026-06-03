@@ -20,6 +20,7 @@ export const SCENARIOS: Record<ScenarioName, ScenarioConfig> = {
     drift: 0,
     tradeRate: 0.6,
     spreadTicks: 1,
+    tempoMs: 600,
   },
   thinning: {
     name: 'thinning',
@@ -34,6 +35,7 @@ export const SCENARIOS: Record<ScenarioName, ScenarioConfig> = {
     drift: 0,
     tradeRate: 0.55,
     spreadTicks: 2,
+    tempoMs: 340,
   },
   wall: {
     name: 'wall',
@@ -48,6 +50,7 @@ export const SCENARIOS: Record<ScenarioName, ScenarioConfig> = {
     drift: 0,
     tradeRate: 0.6,
     spreadTicks: 1,
+    tempoMs: 480,
   },
   spoof: {
     name: 'spoof',
@@ -62,6 +65,7 @@ export const SCENARIOS: Record<ScenarioName, ScenarioConfig> = {
     drift: 0,
     tradeRate: 0.55,
     spreadTicks: 1,
+    tempoMs: 400,
   },
   momentum: {
     name: 'momentum',
@@ -76,6 +80,7 @@ export const SCENARIOS: Record<ScenarioName, ScenarioConfig> = {
     drift: 0.9,
     tradeRate: 0.92,
     spreadTicks: 1,
+    tempoMs: 110,
   },
   absorption: {
     name: 'absorption',
@@ -90,6 +95,7 @@ export const SCENARIOS: Record<ScenarioName, ScenarioConfig> = {
     drift: 0,
     tradeRate: 0.8,
     spreadTicks: 1,
+    tempoMs: 300,
   },
   halt: {
     name: 'halt',
@@ -104,6 +110,7 @@ export const SCENARIOS: Record<ScenarioName, ScenarioConfig> = {
     drift: -1.4,
     tradeRate: 0.4,
     spreadTicks: 4,
+    tempoMs: 90,
   },
 };
 

@@ -7,6 +7,7 @@ import { DepthChart } from '../components/book/DepthChart';
 import { OrderBookLadder } from '../components/book/OrderBookLadder';
 import { TapePanel } from '../components/book/TapePanel';
 import { ScenarioSelector } from '../components/book/ScenarioSelector';
+import { SpeedControl } from '../components/book/SpeedControl';
 import { Explainable } from '../components/Explainable';
 
 export function BookTab() {
@@ -23,6 +24,8 @@ function BookInner() {
   const start = useMarketStore((s) => s.start);
   const stop = useMarketStore((s) => s.stop);
   const setScenario = useMarketStore((s) => s.setScenario);
+  const speed = useMarketStore((s) => s.speed);
+  const setSpeed = useMarketStore((s) => s.setSpeed);
   const { enabled, setEnabled } = useExplain();
   const [showExplainer, setShowExplainer] = useState(false);
 
@@ -39,9 +42,9 @@ function BookInner() {
 
   return (
     <div className="flex h-full flex-col gap-2 overflow-y-auto px-3 py-2">
-      <div className="flex items-center justify-between">
-        <ScenarioSelector value={scenario} onChange={setScenario} />
-      </div>
+      <ScenarioSelector value={scenario} onChange={setScenario} />
+
+      <SpeedControl speed={speed} onChange={setSpeed} />
 
       {/* Explain mode toggle + scenario explainer */}
       <div className="flex items-center gap-2">
