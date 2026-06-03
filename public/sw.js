@@ -2,7 +2,9 @@
 // Level 2 Trainer launches without a network. The simulation is fully local,
 // so once cached the whole app works offline.
 const CACHE = 'l2t-shell-v1';
-const SHELL = ['/', '/index.html', '/manifest.webmanifest'];
+// Relative to the SW scope so the app shell caches correctly whether served
+// from the domain root or a GitHub Pages project subpath.
+const SHELL = ['./', './index.html', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -27,10 +29,10 @@ self.addEventListener('fetch', (event) => {
       fetch(request)
         .then((res) => {
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put('/index.html', copy));
+          caches.open(CACHE).then((c) => c.put('./index.html', copy));
           return res;
         })
-        .catch(() => caches.match('/index.html').then((r) => r ?? Response.error())),
+        .catch(() => caches.match('./index.html').then((r) => r ?? Response.error())),
     );
     return;
   }
