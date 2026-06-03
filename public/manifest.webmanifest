@@ -1,0 +1,24 @@
+{
+  "name": "Level 2 Trainer",
+  "short_name": "L2 Trainer",
+  "description": "Learn to read a Level 2 order book and the tape on a safe, simulated market. Education only — not trading advice.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0E11",
+  "theme_color": "#0B0E11",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

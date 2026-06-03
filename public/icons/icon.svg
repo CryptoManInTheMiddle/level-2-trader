@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#0B0E11"/>
+  <rect x="96" y="96" width="320" height="320" rx="40" fill="#151A21"/>
+  <!-- bid bars (green) growing from center-left -->
+  <rect x="150" y="150" width="120" height="26" rx="6" fill="#16C784" opacity="0.55"/>
+  <rect x="180" y="190" width="90"  height="26" rx="6" fill="#16C784" opacity="0.8"/>
+  <rect x="130" y="230" width="140" height="26" rx="6" fill="#16C784"/>
+  <!-- ask bars (red) growing from center-right -->
+  <rect x="270" y="270" width="112" height="26" rx="6" fill="#EA3943"/>
+  <rect x="270" y="310" width="80"  height="26" rx="6" fill="#EA3943" opacity="0.8"/>
+  <rect x="270" y="350" width="56"  height="26" rx="6" fill="#EA3943" opacity="0.55"/>
+  <!-- mid divider -->
+  <line x1="270" y1="140" x2="270" y2="372" stroke="#5B8DEF" stroke-width="6" stroke-dasharray="4 12" stroke-linecap="round"/>
+</svg>
