@@ -1,10 +1,13 @@
-import { ComingSoon } from '../components/ComingSoon';
+import { SkillTree } from '../components/learn/SkillTree';
+import { LessonPlayer } from '../components/learn/LessonPlayer';
+import { useUiStore } from '../store/uiStore';
 
-export function LearnTab({ onJumpToBook: _onJumpToBook }: { onJumpToBook: () => void }) {
-  return (
-    <ComingSoon
-      title="Learn"
-      blurb="A swipeable skill tree of bite-sized lessons — concept, plain-English explanation, then 'see it live' on the Book. Modules 1–6 from foundations to mastery drills."
-    />
+export function LearnTab({ onJumpToBook }: { onJumpToBook: () => void }) {
+  const activeLessonId = useUiStore((s) => s.activeLessonId);
+
+  return activeLessonId ? (
+    <LessonPlayer onJumpToBook={onJumpToBook} />
+  ) : (
+    <SkillTree />
   );
 }

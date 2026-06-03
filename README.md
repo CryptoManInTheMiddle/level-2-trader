@@ -30,10 +30,17 @@ npm run build    # type-check + production build
   halt).
 - **Book tab**: best bid/ask + spread header, cumulative-depth V-chart,
   10-level ladder with depth bars and green/red flash on size changes, the
-  tape, an Explain-mode coach (tap any element for a definition), and a
-  scenario selector.
+  tape, an Explain-mode coach (tap any element for a definition), a scenario
+  selector, and a speed slider (0.25x study → 1x real-time → 4x firehose).
+  Update timing is irregular/bursty and scenario-driven, modeled on real-life
+  pacing.
+- **Learn tab**: a vertical skill tree (Modules 1–2: Foundations & Reading
+  the Ladder) of swipeable lessons — concept → plain-English explanation →
+  "see it live" deep-link into the Book (loads the right scenario and pops the
+  matching coach popover) → check questions. Completing a lesson awards XP,
+  unlocks the next node, and can grant badges.
 
-Learn, Drills, and Practice tabs are scaffolded placeholders — next up.
+Drills and Practice tabs are scaffolded placeholders — next up.
 
 ## Project layout
 - `src/sim/` — simulation engine, scenario configs, domain types

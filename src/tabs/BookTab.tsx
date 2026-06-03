@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useMarketStore } from '../store/marketStore';
+import { useUiStore } from '../store/uiStore';
 import { SCENARIOS } from '../sim/scenarios';
 import { ExplainProvider, useExplain } from '../components/ExplainProvider';
 import { SpreadHeader } from '../components/book/SpreadHeader';
@@ -26,13 +27,32 @@ function BookInner() {
   const setScenario = useMarketStore((s) => s.setScenario);
   const speed = useMarketStore((s) => s.speed);
   const setSpeed = useMarketStore((s) => s.setSpeed);
-  const { enabled, setEnabled } = useExplain();
+  const { enabled, setEnabled, show } = useExplain();
   const [showExplainer, setShowExplainer] = useState(false);
+
+  const bookFocus = useUiStore((s) => s.bookFocus);
+  const clearBookFocus = useUiStore((s) => s.clearBookFocus);
 
   useEffect(() => {
     start();
     return () => stop();
   }, [start, stop]);
+
+  // Apply a "see it live" deep-link from the Learn tab: load the scenario and
+  // pop the relevant coach popover so the learner lands on exactly the thing
+  // the lesson is about.
+  useEffect(() => {
+    if (!bookFocus) return;
+    if (bookFocus.scenario) setScenario(bookFocus.scenario);
+    if (bookFocus.term) {
+      setEnabled(true);
+      // Let the scenario settle a tick before opening the popover.
+      const t = setTimeout(() => show(bookFocus.term!), 350);
+      clearBookFocus();
+      return () => clearTimeout(t);
+    }
+    clearBookFocus();
+  }, [bookFocus, setScenario, setEnabled, show, clearBookFocus]);
 
   if (!book) {
     return <div className="flex h-full items-center justify-center text-muted">Booting market…</div>;
