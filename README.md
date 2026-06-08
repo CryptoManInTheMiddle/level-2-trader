@@ -47,3 +47,12 @@ Drills and Practice tabs are scaffolded placeholders — next up.
 - `src/store/` — Zustand stores (market loop, persisted progress)
 - `src/components/book/` — order book UI (ladder, depth chart, tape, header)
 - `src/tabs/` — the five screens
+
+## Sibling project: `trading-bot/`
+This repo also hosts **Tracer v1**, a separate, headless **24/7 automated
+trading bot** (Next.js + Supabase + Alpaca) that runs unattended against live
+market data with **paper (simulated) money** to test reliability at zero
+financial risk. It is fully isolated from this Vite PWA — its own
+`package.json`, build, and deploy target (Vercel). See
+[`trading-bot/README.md`](./trading-bot/README.md). Education/experimentation
+only; not trading advice.

@@ -1,0 +1,32 @@
+{
+  "name": "tracer-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tracer v1 — a headless, paper-first 24/7 automated trading bot (Next.js + Supabase + Alpaca).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "next": "^15.5.19",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "server-only": "^0.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.11",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
